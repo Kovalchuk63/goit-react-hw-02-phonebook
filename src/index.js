@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { App } from 'components/App';
-import './index.css';
+import { GlobalStyle } from 'GlobalStyle';
 import { ThemeProvider } from 'styled-components';
+import { App } from 'App';
+
+const theme = {
+  bgColorSection: '#a9a9a9',
+  radius: '5px',
+  spacing: value => `${value * 4}px`,
+};
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <ThemeProvider>
-    <React.StrictMode>
+  <React.StrictMode>
+    <ThemeProvider theme={theme}>
       <App />
-    </React.StrictMode>
-  </ThemeProvider>
+      <GlobalStyle />
+    </ThemeProvider>
+  </React.StrictMode>
 );
